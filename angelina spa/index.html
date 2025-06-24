@@ -112,78 +112,108 @@
             transform: translateY(-2px);
         }
 
-       /* Responsive Adjustments - MODIFICACIONES PRINCIPALES */
-        @media (max-width: 768px) {
-            header {
-                padding: 1.5rem 1rem;
-            }
-            
-            .logo-container {
-                flex-direction: column;
-                text-align: center;
-                margin-bottom: 1rem;
-            }
-            
-            header h1 {
-                font-size: 1.8rem;
-            }
-            
-            .logo {
-                max-height: 120px;
-            }
-            
-            nav {
-                width: 100%;
-                justify-content: center;
-            }
-            
+      /* Responsive Adjustments - MODIFICADO */
+        @media (max-width: 1024px) {
             .nav-links-group {
-                flex-wrap: wrap; /* Permite que los enlaces se envuelvan */
-                justify-content: center;
-                gap: 0.8rem; /* Menor espacio entre enlaces */
-                padding: 0 10px;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.6rem;
             }
             
             nav a {
-                font-size: 0.95rem; /* Tamaño de fuente ligeramente más pequeño */
-                padding: 0.4rem 0.8rem; /* Padding para mejor tacto */
-                background: rgba(255, 255, 255, 0.3);
-                border-radius: 20px;
+                min-width: 110px;
+                font-size: 0.95rem;
+                padding: 0.5rem 0.8rem;
             }
         }
-        .hero {
-            background-image: url('spa_port.png'); /* Use the generated image */
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 10rem 2rem; /* Even more padding */
-            position: relative;
-            overflow: hidden; /* For potential animations later */
+        
+        @media (max-width: 768px) {
+            body {
+                padding-top: 80px;
+            }
+            
+            .header-top {
+                padding: 0.6rem 1rem;
+            }
+            
+            .logo {
+                height: 50px;
+                width: 50px;
+            }
+            
+            header h1 {
+                font-size: 1.3rem;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                height: 0;
+                overflow: hidden;
+                padding: 0;
+                background-color: rgba(209, 151, 148, 0.95);
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                z-index: 999;
+            }
+            
+            nav.active {
+                height: auto;
+                padding: 1rem 0;
+                transform: translateY(0);
+            }
+            
+            .nav-links-group {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+                padding: 0 1rem;
+            }
+            
+            nav a {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+                padding: 0.8rem;
+                font-size: 1.1rem;
+                background: rgba(255, 255, 255, 0.25);
+            }
+            
+            .hero {
+                padding: 6rem 1rem;
+                margin-top: -80px;
+            }
+            
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
         }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.55); /* Darker overlay for strong contrast */
-            z-index: 1;
-        }
-
-        .hero * {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4rem; /* Huge, impactful heading */
-            margin-bottom: 1.5rem;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.7); /* Stronger shadow */
-            line-height: 1.1;
+        
+        @media (max-width: 480px) {
+            .header-top {
+                padding: 0.5rem;
+            }
+            
+            header h1 {
+                font-size: 1.1rem;
+            }
+            
+            .logo {
+                height: 40px;
+                width: 40px;
+                margin-right: 10px;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
         }
 
         .hero p {
