@@ -28,8 +28,8 @@
             background-color: rgba(232, 215, 212, 0.95);
             padding: 1.2rem 2rem;
             display: flex;
-            align-items: center;
-            gap: 2rem;
+            flex-direction: column; /* Cambiado a columna para centrado */
+            align-items: center; /* Centrar todo verticalmente */
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -38,8 +38,10 @@
 
         .logo-container {
             display: flex;
+            flex-direction: column; /* Logo y título en columna */
             align-items: center;
-            gap: 20px; /* Espacio entre el logo y el título "Angeline Estética Integral" */
+            margin-bottom: 1.5rem;
+            text-align: center;
         }
 
         .logo {
