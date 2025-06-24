@@ -85,11 +85,48 @@
             transform: translateY(-2px);
         }
 
-        /* Specific style for the CTA button in the header - no need for margin-left: auto here anymore due to nav's justify-content */
-        /* Lo he quitado para que el justify-content: space-between de nav funcione correctamente. */
-        /* header .cta-button { } */
-
-        /* Hero Section Styling */
+       /* Responsive Adjustments - MODIFICACIONES PRINCIPALES */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .logo-container {
+                flex-direction: column;
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+            
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .logo {
+                max-height: 100px;
+                margin-right: 0; /* Eliminamos el margen derecho en móvil */
+                margin-bottom: 15px; /* Espacio entre logo y título */
+            }
+            
+            nav {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .nav-links-group {
+                flex-wrap: wrap; /* Permite que los enlaces se envuelvan */
+                justify-content: center;
+                gap: 0.8rem; /* Menor espacio entre enlaces */
+                padding: 0 10px;
+            }
+            
+            nav a {
+                font-size: 0.95rem; /* Tamaño de fuente ligeramente más pequeño */
+                padding: 0.4rem 0.8rem; /* Padding para mejor tacto */
+                background: rgba(255, 255, 255, 0.3);
+                border-radius: 20px;
+            }
+        }
         .hero {
             background-image: url('spa_port.png'); /* Use the generated image */
             background-size: cover;
