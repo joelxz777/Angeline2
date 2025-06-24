@@ -42,66 +42,74 @@
             padding: 0.8rem 1.5rem;
         }
 
-
-        .logo-container {
+.logo-container {
             display: flex;
-            flex-direction: column; /* Logo y título en columna */
             align-items: center;
-            margin-bottom: 1.5rem;
-            text-align: center;
         }
 
         .logo {
-            max-height: 160px;
+            height: 70px;
+            width: 70px;
             border-radius: 50%;
+            object-fit: cover;
             box-shadow: 0 0 15px rgba(0,0,0,0.2);
-            margin-bottom: 15px;
+            margin-right: 15px;
         }
 
         header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 0.85rem;
+            font-size: 1.5rem;
             color: #7b4a42;
             margin: 0;
             letter-spacing: 0.05em;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            white-space: nowrap;
         }
 
-        /* Navigation Styling */
+        /* Botón de menú para móviles */
+        .menu-toggle {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: #7b4a42;
+            cursor: pointer;
+            display: none;
+            padding: 0.5rem;
+        }
+
+        /* Navigation Styling - COMPLETAMENTE MODIFICADO */
         nav {
-            width: 100%;
-            display: flex;
-            justify-content: center;
+            background-color: rgba(209, 151, 148, 0.95);
+            padding: 1rem 0;
+            transition: transform 0.4s ease;
         }
 
-        .nav-links-group { /* New class for the group of regular nav links */
+        .nav-links-group {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 columnas */
-            gap: 1.5rem 3rem; /* Espaciado entre elementos */
-            justify-items: center; /* Centrar elementos horizontalmente */
-            max-width: 700px; /* Ancho máximo para controlar el espaciado */
-            padding: 0 20px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.8rem;
+            justify-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 15px;
         }
 
         nav a {
             text-decoration: none;
-            color: #7b4a42;
+            color: white;
             font-weight: 700;
-            font-size: 1.15rem; /* Tamaño de fuente aumentado */
-            padding: 0.5rem 1.2rem;
+            font-size: 1rem;
+            padding: 0.6rem 1rem;
             border-radius: 30px;
-            background: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             text-align: center;
-            min-width: 160px; /* Ancho mínimo para uniformidad */
+            min-width: 130px;
+            white-space: nowrap;
         }
 
         nav a:hover {
-            color: white;
-            background-color: #a67c7a;
-            transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            background-color: rgba(255, 255, 255, 0.35);
+            transform: translateY(-2px);
         }
 
        /* Responsive Adjustments - MODIFICACIONES PRINCIPALES */
