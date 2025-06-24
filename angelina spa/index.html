@@ -100,8 +100,7 @@
        /* Responsive Adjustments - MODIFICACIONES PRINCIPALES */
         @media (max-width: 768px) {
             header {
-                flex-direction: column;
-                padding: 1rem;
+                padding: 1.5rem 1rem;
             }
             
             .logo-container {
@@ -115,9 +114,7 @@
             }
             
             .logo {
-                max-height: 100px;
-                margin-right: 0; /* Eliminamos el margen derecho en móvil */
-                margin-bottom: 15px; /* Espacio entre logo y título */
+                max-height: 120px;
             }
             
             nav {
@@ -562,12 +559,15 @@
                 flex-grow: unset; /* Reset flex-grow on mobile */
             }
             .nav-links-group {
-                justify-content: center; /* Center links on mobile */
-                width: 100%; /* Take full width on mobile */
+                grid-template-columns: 1fr; /* 1 columna en móviles */
+                gap: 1rem;
+                max-width: 400px;
             }
             nav a {
-                font-size: 1rem;
-                margin: 0.5rem 0.5rem; /* Asegura un margen explícito para móvil si es necesario */
+                font-size: 1.1rem;
+                padding: 0.8rem 1.5rem;
+                background: rgba(255, 255, 255, 0.7);
+                width: 100%;
             }
             .hero {
                 padding: 6rem 1rem;
