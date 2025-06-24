@@ -68,24 +68,33 @@
         }
 
         .nav-links-group { /* New class for the group of regular nav links */
-            display: flex;
-            align-items: center;
-            justify-content: center; /* Centramos los enlaces horizontalmente */
-            gap: 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+            gap: 1.5rem 3rem; /* Espaciado entre elementos */
+            justify-items: center; /* Centrar elementos horizontalmente */
+            max-width: 700px; /* Ancho máximo para controlar el espaciado */
+            padding: 0 20px;
         }
 
         nav a {
             text-decoration: none;
             color: #7b4a42;
             font-weight: 700;
-            font-size: 1.1rem;
-            transition: color 0.3s ease, transform 0.2s ease;
-            white-space: nowrap; /* Evita que los textos se dividan */
+            font-size: 1.15rem; /* Tamaño de fuente aumentado */
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.4);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            min-width: 160px; /* Ancho mínimo para uniformidad */
         }
 
         nav a:hover {
-            color: #d19794; /* Lighter rose on hover */
-            transform: translateY(-2px);
+            color: white;
+            background-color: #a67c7a;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
        /* Responsive Adjustments - MODIFICACIONES PRINCIPALES */
@@ -540,14 +549,13 @@
         /* Responsive Adjustments */
         @media (max-width: 768px) {
             header {
-                flex-direction: column;
-                padding: 1rem;
+                padding: 1.5rem 1rem;
             }
             .logo-container {
-                margin-bottom: 1rem;
+                max-height: 120px;
             }
             header h1 {
-                font-size: 1.8rem; /* Adjusted for smaller screens */
+                font-size: 1.9rem;
             }
             .logo {
                 max-height: 100px; /* Adjusted for smaller screens */
