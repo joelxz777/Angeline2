@@ -27,14 +27,13 @@
         /* Header Styling */
         header {
             background-color: rgba(232, 215, 212, 0.95);
-            padding: 1.2rem 1.5rem;
-            display: flex;
-            flex-direction: column; /* Cambiado a columna para centrado */
-            align-items: center; /* Centrar todo verticalmente */
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
+            width: 100%;
             z-index: 1000;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.4s ease;
         }
 
         .logo-container {
