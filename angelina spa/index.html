@@ -504,6 +504,38 @@
                 right: 10px;
     }
 }
+        /* Contenedor para la imagen */
+        .service-img-container {
+            height: 250px; /* Altura fija para uniformidad */
+            overflow: hidden;
+            position: relative;
+            border-radius: 15px 15px 0 0; /* Bordes redondeados solo arriba */
+        }
+        
+        /* La imagen en sí */
+        .service-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ajusta la imagen manteniendo relación de aspecto */
+            object-position: center; /* Centra la imagen */
+            transition: transform 0.5s ease; /* Animación suave */
+        }
+        
+        /* Efecto hover */
+        .service-card:hover .service-img {
+            transform: scale(1.05);
+        }
+        
+        /* Asegurar que la tarjeta tenga el mismo alto */
+        .service-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%; /* Asegura que todas las tarjetas tengan la misma altura */
+        }
+        
+        .service-content {
+            flex-grow: 1; /* Hace que el contenido ocupe el espacio restante */
+        }
     </style>
 </head>
 <body>
@@ -555,11 +587,12 @@
             </div>
             
             <div class="service-card">
-                <div class="service-img" style="background-image: url('limpieza_profunda.jpg');">
-                <div class="service-content">
-                    <h4>Control de Acné Avanzado</h4>
-                    <p>Control de grasa, reducción de inflamación y enrojecimiento. Previene cicatrices y manchas para siempre.</p>
-                </div>
+                <div class="service-img-container">
+                    <img src="limpieza_profunda.jpg" alt="Descripción del tratamiento" class="service-img">    
+                    <div class="service-content">
+                        <h4>Control de Acné Avanzado</h4>
+                        <p>Control de grasa, reducción de inflamación y enrojecimiento. Previene cicatrices y manchas para siempre.</p>
+                    </div>
             </div>
             
             <div class="service-card">
