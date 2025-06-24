@@ -13,77 +13,118 @@
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
-            /* Asegúrate de que la imagen 'Gemini_Generated_Image_kkdahqkkdahqkkda.jpg' esté en la misma carpeta que tu archivo HTML
-               para que el fondo sea visible en tu sitio web. */
             background-image: url('telon-de-fondo-de-producto-de-cortina-blanca.jpg');
-            background-size: cover; /* Cover the entire viewport */
-            background-attachment: fixed; /* Keep background fixed while scrolling */
-            background-position: center center; /* Center the background image */
-            background-color: #f8f0f0; /* Fallback background color */
-            color: #333; /* Darker text for stronger contrast */
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center center;
+            background-color: #f8f0f0;
+            color: #333;
             scroll-behavior: smooth;
             line-height: 1.6;
         }
 
         /* Header Styling */
         header {
-            background-color: rgba(232, 215, 212, 0.95); /* Muted rose background with transparency */
+            background-color: rgba(232, 215, 212, 0.95);
             padding: 1.2rem 2rem;
             display: flex;
             align-items: center;
-            /* Controla la distancia entre el logo-container y el nav */
-            /* Si reduces este 'gap', la navegación se mueve más hacia la izquierda. */
-            gap: 2rem; /* VALOR A MODIFICAR para el espacio entre el logo/título y el bloque de navegación */
+            gap: 2rem;
             position: sticky;
             top: 0;
-            z-index: 1000; /* Higher z-index */
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* More pronounced shadow */
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 20px; /* Espacio entre el logo y el título "Angeline Estética Integral" */
+            gap: 20px;
         }
 
         .logo {
-            max-height: 160px; /* Increased logo size as requested */
-            margin-right: 50px; /* Increased space for the logo as requested */
-            border-radius: 50%; /* Make it round if square */
+            max-height: 160px;
+            margin-right: 50px;
+            border-radius: 50%;
             box-shadow: 0 0 10px rgba(0,0,0,0.15);
         }
 
         header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.2rem; /* Retained for visual hierarchy */
-            color: #7b4a42; /* Deep rose color */
-            margin: 0; /* Asegura que no haya márgenes por defecto */
+            font-size: 2.2rem;
+            color: #7b4a42;
+            margin: 0;
             letter-spacing: 0.05em;
         }
 
-        /* Navigation Styling */
+        /* Navigation Styling - MODIFICACIONES PRINCIPALES */
         nav {
             display: flex;
-            align-items: center; /* Vertically align nav items */
-            /* ESTA ES LA CLAVE: Empuja el grupo de enlaces a la izquierda y el botón a la derecha */
-            justify-content: space-between;
-            flex-grow: 1; /* Permite que el nav ocupe el espacio disponible en el header */
+            flex-grow: 1;
+            justify-content: center; /* Centramos todo el contenido del nav */
         }
 
-        .nav-links-group { /* New class for the group of regular nav links */
+        .nav-links-group {
             display: flex;
             align-items: center;
-            /* Controla el espacio entre los enlaces individuales (Tratamientos, Asesor IA, etc.) */
-            gap: 1.5rem; /* VALOR A MODIFICAR para el espacio entre los enlaces individuales */
+            justify-content: center; /* Centramos los enlaces horizontalmente */
+            gap: 1.5rem;
         }
 
         nav a {
             text-decoration: none;
             color: #7b4a42;
-            font-weight: 700; /* Bolder navigation links */
+            font-weight: 700;
             font-size: 1.1rem;
-            /* Eliminado margin-left: el 'gap' del padre .nav-links-group lo controla ahora. */
             transition: color 0.3s ease, transform 0.2s ease;
+            white-space: nowrap; /* Evita que los textos se dividan */
+        }
+
+        nav a:hover {
+            color: #d19794;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Adjustments - MODIFICACIONES PRINCIPALES */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .logo-container {
+                flex-direction: column;
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+            
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .logo {
+                max-height: 100px;
+                margin-right: 0; /* Eliminamos el margen derecho en móvil */
+                margin-bottom: 15px; /* Espacio entre logo y título */
+            }
+            
+            nav {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .nav-links-group {
+                flex-wrap: wrap; /* Permite que los enlaces se envuelvan */
+                justify-content: center;
+                gap: 0.8rem; /* Menor espacio entre enlaces */
+                padding: 0 10px;
+            }
+            
+            nav a {
+                font-size: 0.95rem; /* Tamaño de fuente ligeramente más pequeño */
+                padding: 0.4rem 0.8rem; /* Padding para mejor tacto */
+                background: rgba(255, 255, 255, 0.3);
+                border-radius: 20px;
         }
 
         nav a:hover {
