@@ -711,17 +711,18 @@
     </style>
 </head>
 <body>
-    <!-- Header Section: Logo, Title, and Navigation -->
-    <header>
-        <div class="logo-container">
-            <!--
-                Asegúrate de que la imagen 'LOGO_ESTETICA_ANGELINE-removebg-preview.png' esté en la misma carpeta que tu archivo HTML
-                cuando lo adjuntes para que el logo sea visible en tu sitio web.
-            -->
-            <img src="LOGO_ESTETICA_ANGELINE-removebg-preview.png" alt="Angeline Estética Integral Logo" class="logo">
-            <h1>Angeline Estética Integral</h1>
+     <!-- Header Section: Logo, Title, and Navigation -->
+    <header id="main-header">
+        <div class="header-top">
+            <div class="logo-container">
+                <img src="LOGO_ESTETICA_ANGELINE-removebg-preview.png" alt="Angeline Estética Integral Logo" class="logo">
+                <h1>Angeline Estética Integral</h1>
+            </div>
+            <button class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
-        <nav>
+        <nav id="main-nav">
             <div class="nav-links-group">
                 <a href="#servicios">Tratamientos</a>
                 <a href="#asesor-ia">Asesor IA</a>
@@ -730,16 +731,9 @@
                 <a href="https://instagram.com/angeline_medspa" target="_blank" aria-label="Visita nuestro Instagram">Instagram</a>
                 <a href="#contacto">Contacto</a>
             </div>
-            <!-- CTA Button in Header (visible on larger screens) -->
-            <!-- ELIMINADO: Botón "Agenda tu Cita" de la esquina superior derecha según tu solicitud.
-            <a href="https://wa.me/15619011837" class="cta-button" target="_blank">
-                <i class="fab fa-whatsapp"></i> Agenda tu Cita
-            </a>
-            -->
         </nav>
     </header>
-
-    <!-- Hero Section: Main visual and Call to Action -->
+<!-- Hero Section: Corrección tipográfica en el título -->
     <section class="hero">
         <h2>¡Despierta la Luminosidad Oculta de tu Piel!</h2>
         <p>En Angeline Estética Integral, no solo tratamos tu piel, ¡revelamos tu confianza! Transforma tu imagen con nuestros innovadores tratamientos personalizados.</p>
@@ -962,6 +956,52 @@
     </footer>
 
     <script>
+        // Comportamiento del header que se oculta al desplazar
+        let lastScrollTop = 0;
+        const header = document.getElementById('main-header');
+        const nav = document.getElementById('main-nav');
+        const toggleButton = document.getElementById('menu-toggle');
+        
+        // Ocultar header al desplazar hacia abajo
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scroll hacia abajo
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                // Scroll hacia arriba
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+        
+        // Toggle menu en móviles
+        toggleButton.addEventListener('click', function() {
+            nav.classList.toggle('active');
+            toggleButton.innerHTML = nav.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Cerrar menú al hacer clic en un enlace (solo móviles)
+        const navLinks = document.querySelectorAll('.nav-links-group a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    nav.classList.remove('active');
+                    toggleButton.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+        
+        // Cerrar menú al hacer scroll en móviles
+        window.addEventListener('scroll', function() {
+            if (window.innerWidth <= 768 && nav.classList.contains('active')) {
+                nav.classList.remove('active');
+                toggleButton.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
         // Define the list of Angeline Spa services
         const angelineServices = [
             "Limpieza Facial Profunda",
