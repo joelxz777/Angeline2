@@ -507,31 +507,49 @@
 
         /* Responsive Adjustments */
          @media (max-width: 768px) {
-    /* Header reorganizado */
+    
     header {
         flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1.3rem 1.5rem;
+        align-items: flex-start; /* Alinea el contenido en la parte superior */
+        padding: 0.8rem 1rem;
     }
 
     .logo-container {
+        display: flex;
+        flex-direction: column; /* Coloca texto en columnas */
         margin-bottom: 0;
         flex-grow: 1;
-        max-width: calc(100% - 60px);
-    }
-
-    .hamburger {
-        display: block;
-        order: 1;
     }
 
     header h1 {
-        font-size: 1.1rem;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        font-size: 1.3rem;
+        white-space: normal; /* Permite saltos de línea */
+        line-height: 1.2;
+        /* Estilos específicos para dividir el texto */
+        display: flex;
+        flex-direction: column;
     }
+    /* Asegura que el hamburguesa sea visible */
+    .hamburger {
+        display: block !important;
+        order: 2;
+        margin-left: auto;
+        padding: 8px;
+    }
+    /* Estilos para dividir el título */
+    .logo-container h1::before {
+        content: "Angeline";
+        display: block;
+        font-size: 1.4rem;
+        font-weight: bold;
+    }
+
+    .logo-container h1::after {
+        content: "Estética Integral";
+        display: block;
+        font-size: 1rem;
+        margin-top: -5px;
+    }         
 
     .logo {
         max-height: 60px;
