@@ -1,167 +1,112 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Angeline Estética Integral - ¡Transforma tu Piel Hoy!</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        :root {
-            --color-primary: #7b4a42;
-            --color-secondary: #d19794;
-            --color-light: #e8d7d4;
-            --color-dark: #4a2e28;
-            --color-white: #ffffff;
-            --color-black: #333333;
-        }
-        
+        /* General Body Styling */
         body {
+            margin: 0;
             font-family: 'Roboto', sans-serif;
-            /* FONDO SIMPLIFICADO - SOLO IMAGEN */
+            /* Asegúrate de que la imagen 'Gemini_Generated_Image_kkdahqkkdahqkkda.jpg' esté en la misma carpeta que tu archivo HTML
+               para que el fondo sea visible en tu sitio web. */
             background-image: url('telon-de-fondo-de-producto-de-cortina-blanca.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: var(--color-black);
+            background-size: cover; /* Cover the entire viewport */
+            background-attachment: fixed; /* Keep background fixed while scrolling */
+            background-position: center center; /* Center the background image */
+            background-color: #f8f0f0; /* Fallback background color */
+            color: #333; /* Darker text for stronger contrast */
             scroll-behavior: smooth;
             line-height: 1.6;
-            padding-top: 120px;
-            min-height: 100vh;
         }
-        
-        /* HEADER STYLES */
+
+        /* Header Styling */
         header {
-            background-color: var(--color-light);
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.4s ease;
-        }
-        
-        .header-top {
+            background-color: rgba(232, 215, 212, 0.95); /* Muted rose background with transparency */
+            padding: 1.2rem 2rem;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 0.8rem 1.5rem;
-            background-color: rgba(232, 215, 212, 0.95);
+            /* Controla la distancia entre el logo-container y el nav */
+            /* Si reduces este 'gap', la navegación se mueve más hacia la izquierda. */
+            gap: 2rem; /* VALOR A MODIFICAR para el espacio entre el logo/título y el bloque de navegación */
+            position: sticky;
+            top: 0;
+            z-index: 1000; /* Higher z-index */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* More pronounced shadow */
         }
-        
+
         .logo-container {
             display: flex;
             align-items: center;
-            transition: all 0.3s ease;
+            gap: 20px; /* Espacio entre el logo y el título "Angeline Estética Integral" */
         }
-        
+
         .logo {
-            height: 70px;
-            width: 70px;
-            border-radius: 50%;
-            object-fit: cover;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            margin-right: 15px;
-            border: 2px solid var(--color-secondary);
-            transition: all 0.3s ease;
+            max-height: 160px; /* Increased logo size as requested */
+            margin-right: 50px; /* Increased space for the logo as requested */
+            border-radius: 50%; /* Make it round if square */
+            box-shadow: 0 0 10px rgba(0,0,0,0.15);
         }
-        
+
         header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            color: var(--color-primary);
-            margin: 0;
+            font-size: 2.2rem; /* Retained for visual hierarchy */
+            color: #7b4a42; /* Deep rose color */
+            margin: 0; /* Asegura que no haya márgenes por defecto */
             letter-spacing: 0.05em;
-            white-space: nowrap;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
-        
-        /* Botón de menú para móviles */
-        .menu-toggle {
-            background: none;
-            border: none;
-            font-size: 1.8rem;
-            color: var(--color-primary);
-            cursor: pointer;
-            display: none;
-            padding: 0.5rem;
-            transition: all 0.3s ease;
-        }
-        
-        .menu-toggle:hover {
-            color: var(--color-dark);
-            transform: scale(1.1);
-        }
-        
+
         /* Navigation Styling */
         nav {
-            background-color: rgba(209, 151, 148, 0.95);
-            padding: 1rem 0;
-            transition: transform 0.4s ease, height 0.4s ease;
-            height: auto;
-            overflow: hidden;
+            display: flex;
+            align-items: center; /* Vertically align nav items */
+            /* ESTA ES LA CLAVE: Empuja el grupo de enlaces a la izquierda y el botón a la derecha */
+            justify-content: space-between;
+            flex-grow: 1; /* Permite que el nav ocupe el espacio disponible en el header */
         }
-        
-        .nav-links-group {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0.8rem;
-            justify-items: center;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        nav a {
-            text-decoration: none;
-            color: var(--color-white);
-            font-weight: 700;
-            font-size: 1rem;
-            padding: 0.8rem 1.2rem;
-            border-radius: 30px;
-            background: rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-            text-align: center;
-            min-width: 150px;
-            white-space: nowrap;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+        .nav-links-group { /* New class for the group of regular nav links */
             display: flex;
             align-items: center;
-            justify-content: center;
+            /* Controla el espacio entre los enlaces individuales (Tratamientos, Asesor IA, etc.) */
+            gap: 1.5rem; /* VALOR A MODIFICAR para el espacio entre los enlaces individuales */
         }
-        
-        nav a i {
-            margin-right: 8px;
-            font-size: 1.2rem;
+
+        nav a {
+            text-decoration: none;
+            color: #7b4a42;
+            font-weight: 700; /* Bolder navigation links */
+            font-size: 1.1rem;
+            /* Eliminado margin-left: el 'gap' del padre .nav-links-group lo controla ahora. */
+            transition: color 0.3s ease, transform 0.2s ease;
         }
-        
+
         nav a:hover {
-            background-color: rgba(255, 255, 255, 0.35);
-            transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            color: #d19794; /* Lighter rose on hover */
+            transform: translateY(-2px);
         }
-        
-        /* Hero Section */
+
+        /* Specific style for the CTA button in the header - no need for margin-left: auto here anymore due to nav's justify-content */
+        /* Lo he quitado para que el justify-content: space-between de nav funcione correctamente. */
+        /* header .cta-button { } */
+
+        /* Hero Section Styling */
         .hero {
-            background: linear-gradient(135deg, #a67c7a, #d19794);
-            color: var(--color-white);
+            background-image: url('imagen_spa.jpg'); /* Use the generated image */
+            background-size: cover;
+            background-position: center;
+            color: white;
             text-align: center;
-            padding: 6rem 2rem;
+            padding: 10rem 2rem; /* Even more padding */
             position: relative;
-            margin: -120px 0 2rem;
-            border-radius: 0 0 30px 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
+            overflow: hidden; /* For potential animations later */
         }
-        
+
         .hero::before {
             content: '';
             position: absolute;
@@ -169,43 +114,40 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="%23ffffff" stroke-width="0.5" opacity="0.2"/></svg>');
-            opacity: 0.1;
+            background: rgba(0, 0, 0, 0.55); /* Darker overlay for strong contrast */
             z-index: 1;
         }
-        
-        .hero-content {
+
+        .hero * {
             position: relative;
             z-index: 2;
-            max-width: 900px;
-            margin: 0 auto;
         }
-        
+
         .hero h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
+            font-size: 4rem; /* Huge, impactful heading */
             margin-bottom: 1.5rem;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.7); /* Stronger shadow */
             line-height: 1.1;
-            animation: fadeInUp 1s ease;
         }
-        
+
         .hero p {
-            font-size: 1.5rem;
+            font-size: 1.6rem; /* Larger descriptive text */
             margin-bottom: 3rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
             font-weight: 400;
-            animation: fadeInUp 1s ease 0.2s;
-            animation-fill-mode: both;
         }
-        
+
         /* Call To Action Button Styling */
         .cta-button {
-            background-color: var(--color-white);
-            color: var(--color-primary);
-            padding: 1.2rem 2.5rem;
+            background-color: #d19794; /* Brighter rose */
+            color: white;
+            padding: 1.2rem 2.5rem; /* Larger padding */
             border: none;
-            border-radius: 50px;
+            border-radius: 50px; /* Pill shape */
             font-size: 1.2rem;
             font-weight: bold;
             cursor: pointer;
@@ -213,537 +155,819 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 0.8rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-            text-transform: uppercase;
+            gap: 0.8rem; /* More space for icon */
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.25); /* Stronger shadow */
+            text-transform: uppercase; /* Uppercase text */
             letter-spacing: 0.05em;
-            animation: fadeInUp 1s ease 0.4s;
-            animation-fill-mode: both;
         }
-        
+
         .cta-button:hover {
-            background-color: var(--color-secondary);
-            color: var(--color-white);
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            background-color: #a67c7a; /* Even deeper rose on hover */
+            transform: translateY(-4px) scale(1.02); /* More pronounced lift and slight scale */
+            box-shadow: 0 8px 16px rgba(0,0,0,0.35);
         }
-        
+
         .cta-button i {
-            font-size: 1.4rem;
+            font-size: 1.4rem; /* Larger icon */
         }
-        
-        /* Services Section */
-        .services {
+
+        /* Visually hidden text for accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* Section General Styling */
+        section {
+            padding: 6rem 2rem; /* More consistent padding for sections */
             max-width: 1200px;
-            margin: 3rem auto;
-            padding: 0 1.5rem;
+            margin: auto;
+            position: relative; /* For potential layered effects */
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background for content sections */
+            border-radius: 15px; /* Rounded corners for sections */
+            margin-bottom: 4rem; /* Space between sections */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Subtle shadow for depth */
         }
-        
+
+        /* Services Section Styling */
+        .services {
+            text-align: center;
+        }
         .services h3 {
             font-family: 'Playfair Display', serif;
-            color: var(--color-primary);
-            font-size: 2.8rem;
-            text-align: center;
-            margin-bottom: 3rem;
+            color: #7b4a42;
+            font-size: 3.5rem; /* Larger, more prominent heading */
+            margin-bottom: 4rem;
             position: relative;
         }
-        
-        .services h3::after {
+        .services h3::after { /* Underline effect */
             content: '';
             display: block;
             width: 80px;
             height: 4px;
-            background-color: var(--color-secondary);
+            background-color: #d19794;
             margin: 1rem auto 0;
             border-radius: 2px;
         }
-        
+
         .service-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Slightly wider cards */
+            gap: 3rem; /* More space between cards */
         }
-        
+
         .service-card {
-            background: var(--color-white);
-            border-radius: 15px;
+            background-color: white; /* White background for cards */
+            border: 1px solid #e8d7d4; /* Muted rose border */
+            border-radius: 15px; /* More rounded corners */
+            padding: 2rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1); /* Stronger shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
+            position: relative;
         }
-        
+
+        .service-card::before { /* Decorative element */
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(209, 151, 148, 0.1); /* Light rose translucent circle */
+            border-radius: 50%;
+            z-index: 0;
+            transition: transform 0.5s ease;
+        }
+        .service-card:hover::before {
+            transform: scale(1.5);
+        }
+
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px); /* More pronounced lift */
+            box-shadow: 0 12px 25px rgba(0,0,0,0.2);
         }
-        
-        .service-img {
-            height: 200px;
-            background: linear-gradient(45deg, var(--color-secondary), var(--color-primary));
+
+        .service-card img {
+            width: 100%;
+            max-height: 220px; /* Slightly taller images */
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            filter: grayscale(0%); /* Always full color */
+            transition: transform 0.3s ease;
+            z-index: 1; /* Ensure image is above pseudo-element */
+        }
+
+        .service-card:hover img {
+            transform: scale(1.05); /* Slight zoom on image hover */
+        }
+
+        .service-card-info {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .service-card-info h4 {
+            font-family: 'Playfair Display', serif;
+            margin: 0 0 0.8rem 0;
+            color: #7b4a42;
+            font-size: 1.6rem; /* Larger service title */
+        }
+
+        .service-card-info p {
+            margin: 0.5rem 0 2rem 0;
+            font-size: 1.05rem; /* Slightly larger description text */
+            line-height: 1.7;
+            color: #555;
+        }
+
+        /* AI Assistant Section */
+        .ai-assistant {
+            text-align: center;
+        }
+        .ai-assistant h3 {
+            font-family: 'Playfair Display', serif;
+            color: #7b4a42;
+            font-size: 3.5rem;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        .ai-assistant h3::after { /* Underline effect */
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: #d19794;
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+        .ai-assistant-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .ai-assistant-content textarea {
+            width: calc(100% - 20px);
+            min-height: 120px;
+            padding: 10px;
+            margin-bottom: 1.5rem;
+            border: 1px solid #e8d7d4;
+            border-radius: 8px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            resize: vertical;
+        }
+        .ai-assistant-content .cta-button {
+            margin-top: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .ai-response {
+            background-color: #f1e9e8;
+            border: 1px solid #d19794;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            text-align: left;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #444;
+            min-height: 100px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
         }
-        
-        .service-content {
-            padding: 1.5rem;
+        .ai-response.loading {
+            background-color: #fefcf9;
+            color: #7b4a42;
+            font-style: italic;
         }
-        
-        .service-content h4 {
+
+        /* Testimonials/Gallery Section */
+        .gallery {
+            text-align: center;
+        }
+        .gallery h3 {
             font-family: 'Playfair Display', serif;
-            color: var(--color-primary);
-            font-size: 1.5rem;
-            margin-bottom: 0.8rem;
+            color: #7b4a42;
+            font-size: 3.5rem;
+            margin-bottom: 3rem;
+            position: relative;
         }
-        
-        .service-content p {
-            color: var(--color-black);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
+        .gallery h3::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: #d19794;
+            margin: 1rem auto 0;
+            border-radius: 2px;
         }
-        
-        /* Footer */
+
+        .gallery-images {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .gallery img {
+            width: 100%;
+            max-width: 380px; /* Larger images */
+            height: 280px; /* Consistent height */
+            object-fit: cover;
+            border-radius: 15px;
+            border: 3px solid #d19794; /* Thicker, impactful border */
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05); /* More zoom on hover */
+            border-color: #a67c7a;
+        }
+
+        .gallery p {
+            max-width: 900px;
+            margin: 2rem auto 0 auto;
+            font-size: 1.2rem; /* Larger text */
+            line-height: 1.8;
+            color: #444;
+            font-style: italic; /* Emphasize testimonials */
+        }
+
+        /* Sticky WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25D366; /* WhatsApp green */
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.2rem; /* Large icon */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Contact Section Styling */
+        #contacto {
+            background-color: #e8d7d4; /* Matching header/footer background */
+            padding-bottom: 0;
+        }
+        #contacto h3 {
+            font-family: 'Playfair Display', serif;
+            color: #7b4a42;
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        #contacto h3::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: #7b4a42;
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+
+        #contacto p {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #555;
+        }
+
+        #contacto .cta-button {
+            margin-top: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        iframe {
+            width: 100%;
+            height: 450px; /* Even taller map */
+            border: 0;
+            border-radius: 0;
+            display: block;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
+        }
+
+        /* Footer Styling */
         footer {
-            background-color: var(--color-primary);
+            background-color: #7b4a42; /* Darker footer for impact */
             text-align: center;
             padding: 2.5rem;
-            color: var(--color-white);
-            margin-top: 4rem;
+            font-size: 1rem;
+            color: white;
         }
-        
-        footer p {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-        
+
         footer a {
-            color: var(--color-light);
+            color: #d19794; /* Lighter rose links */
             text-decoration: none;
             margin: 0 0.8rem;
-            transition: all 0.3s ease;
+            transition: color 0.3s ease;
         }
-        
+
         footer a:hover {
-            color: var(--color-white);
-            text-decoration: underline;
+            color: white;
         }
-        
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
+
         /* Responsive Adjustments */
-        @media (max-width: 1024px) {
-            .nav-links-group {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 0.6rem;
-            }
-            
-            nav a {
-                min-width: 140px;
-                font-size: 0.95rem;
-                padding: 0.7rem 1rem;
-            }
-            
-            .hero h2 {
-                font-size: 3rem;
-            }
-            
-            .hero p {
-                font-size: 1.3rem;
-            }
-        }
-        
         @media (max-width: 768px) {
-            body {
-                padding-top: 80px;
-            }
-            
-            .header-top {
-                padding: 0.6rem 1rem;
-            }
-            
-            .logo {
-                height: 50px;
-                width: 50px;
-            }
-            
-            header h1 {
-                font-size: 1.3rem;
-            }
-            
-            .menu-toggle {
-                display: block;
-            }
-            
-            nav {
-                position: fixed;
-                top: 80px;
-                left: 0;
-                right: 0;
-                height: 0;
-                overflow: hidden;
-                padding: 0;
-                background-color: rgba(209, 151, 148, 0.98);
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-                z-index: 999;
-            }
-            
-            nav.active {
-                height: auto;
-                padding: 1.5rem 0;
-                transform: translateY(0);
-            }
-            
-            .nav-links-group {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-                padding: 0 1rem;
-            }
-            
-            nav a {
-                width: 100%;
-                max-width: 300px;
-                margin: 0 auto;
+            header {
+                flex-direction: column;
                 padding: 1rem;
-                font-size: 1.1rem;
-                background: rgba(255, 255, 255, 0.25);
             }
-            
+            .logo-container {
+                margin-bottom: 1rem;
+            }
+            header h1 {
+                font-size: 1.8rem; /* Adjusted for smaller screens */
+            }
+            .logo {
+                max-height: 100px; /* Adjusted for smaller screens */
+                margin-right: 25px; /* Adjusted for smaller screens */
+            }
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                flex-grow: unset; /* Reset flex-grow on mobile */
+            }
+            .nav-links-group {
+                justify-content: center; /* Center links on mobile */
+                width: 100%; /* Take full width on mobile */
+            }
+            nav a {
+                font-size: 1rem;
+                margin: 0.5rem 0.5rem; /* Asegura un margen explícito para móvil si es necesario */
+            }
             .hero {
-                padding: 5rem 1rem;
-                margin: -80px 0 2rem;
-                border-radius: 0 0 20px 20px;
+                padding: 6rem 1rem;
             }
-            
             .hero h2 {
-                font-size: 2.2rem;
+                font-size: 2.8rem;
             }
-            
             .hero p {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
-            
             .cta-button {
                 padding: 1rem 2rem;
                 font-size: 1rem;
+                gap: 0.6rem;
             }
-        }
-        
-        @media (max-width: 480px) {
-            .header-top {
-                padding: 0.5rem;
+            .cta-button i {
+                font-size: 1.2rem;
             }
-            
-            header h1 {
-                font-size: 1.1rem;
+            section {
+                padding: 4rem 1rem;
             }
-            
-            .logo {
-                height: 40px;
-                width: 40px;
-                margin-right: 10px;
+            .services h3, .gallery h3, #contacto h3, .ai-assistant h3 {
+                font-size: 2.5rem;
+                margin-bottom: 2rem;
             }
-            
-            .hero h2 {
-                font-size: 1.8rem;
+            .service-grid {
+                gap: 1.5rem;
             }
-            
-            .hero p {
+            .service-card {
+                padding: 1.2rem;
+            }
+            .service-card img {
+                max-height: 180px;
+            }
+            .service-card-info h4 {
+                font-size: 1.3rem;
+            }
+            .service-card-info p {
+                font-size: 0.9rem;
+            }
+            .gallery img {
+                max-width: 100%;
+                height: 200px;
+            }
+            .gallery p {
                 font-size: 1rem;
             }
-            
-            .services h3 {
-                font-size: 2.2rem;
+            iframe {
+                height: 350px;
             }
-        }
             .whatsapp-float {
-                position: fixed;
-                bottom: 25px;
-                right: 25px;
-                width: 75px;
-                height: 75px;
-                background-color: #25d366;
-                color: white;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 2rem;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-                z-index: 1000;
-                transition: all 0.3s ease;
-                text-decoration: none;
-}
-
-            .whatsapp-float:hover {
-                transform: scale(1.1);
-                box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-                background-color: #128c7e;
-}
-
-            /* Versión móvil */
-            @media (max-width: 768px) {
-            .whatsapp-float {
-                width: 75px;
-                height: 75px;
-                font-size: 1.97rem;
-                bottom: 10px;
-                right: 10px;
-    }
-}
-        /* Contenedor para la imagen */
-        .service-img-container {
-            height: 280px; /* Altura fija para uniformidad */
-            position: relative;
-            overflow: hidden;
-        }
-        
-        /* La imagen en sí */
-        .service-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Ajuste perfecto */
-            object-position: center; /* Centra la imagen */
-            transition: transform 0.5s ease; /* Animación opcional */
-        }
-        
-        /* Efecto hover */
-        .service-card:hover .service-img {
-            transform: scale(1.05);
-        }
-        
-        /* Asegurar que la tarjeta tenga el mismo alto */
-        .service-card {
-            display: flex;
-            flex-direction: column;
-            height: 100%; /* Asegura que todas las tarjetas tengan la misma altura */
-        }
-        
-        .service-content {
-            flex-grow: 1; /* Hace que el contenido ocupe el espacio restante */
+                width: 50px;
+                height: 50px;
+                font-size: 1.8rem;
+                bottom: 20px;
+                right: 20px;
+            }
+            .ai-assistant-content {
+                padding: 2rem 1rem;
+            }
+            .ai-assistant-content textarea {
+                width: calc(100% - 20px);
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header Section -->
-    <header id="main-header">
-        <div class="header-top">
-            <div class="logo-container">
-               <!-- REEMPLAZA ESTA IMAGEN CON TU LOGO -->
-    <img src="LOGO_ESTETICA_ANGELINE-removebg-preview.png" alt="Logo Angeline" class="logo">
-    <h1>Angeline Estética Integral</h1>
-            </div>
-            <button class="menu-toggle" id="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </button>
+    <!-- Header Section: Logo, Title, and Navigation -->
+    <header>
+        <div class="logo-container">
+            <!--
+                Asegúrate de que la imagen 'LOGO_ESTETICA_ANGELINE-removebg-preview.png' esté en la misma carpeta que tu archivo HTML
+                cuando lo adjuntes para que el logo sea visible en tu sitio web.
+            -->
+            <img src="LOGO_ESTETICA_ANGELINE-removebg-preview.png" alt="Angeline Estética Integral Logo" class="logo">
+            <h1>Angeline Estética Integral</h1>
         </div>
-        <nav id="main-nav">
+        <nav>
             <div class="nav-links-group">
-                <a href="#servicios"><i class="fas fa-spa"></i> Tratamientos</a>
-                <a href="#asesor-ia"><i class="fas fa-robot"></i> Asesor IA</a>
-                <a href="#faq-ia"><i class="fas fa-question-circle"></i> Preguntas IA</a>
-                <a href="#galeria"><i class="fas fa-images"></i> Resultados</a>
-                <a href="https://instagram.com/angeline_medspa" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-                <a href="#contacto"><i class="fas fa-envelope"></i> Contacto</a>
+                <a href="#servicios">Tratamientos</a>
+                <a href="#asesor-ia">Asesor IA</a>
+                <a href="#faq-ia">Preguntas IA</a>
+                <a href="#galeria">Resultados</a>
+                <a href="https://instagram.com/angeline_medspa" target="_blank" aria-label="Visita nuestro Instagram">Instagram</a>
+                <a href="#contacto">Contacto</a>
             </div>
+            <!-- CTA Button in Header (visible on larger screens) -->
+            <!-- ELIMINADO: Botón "Agenda tu Cita" de la esquina superior derecha según tu solicitud.
+            <a href="https://wa.me/15619011837" class="cta-button" target="_blank">
+                <i class="fab fa-whatsapp"></i> Agenda tu Cita
+            </a>
+            -->
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" style="background-image: url('spa_port.png');">
-        <div class="hero-content">
-            <h2>¡Despierta la Luminosidad Oculta de tu Piel!</h2>
-            <p>En Angeline Estética Integral, no solo tratamos tu piel, ¡revelamos tu confianza! Transforma tu imagen con nuestros innovadores tratamientos personalizados.</p>
-            <a href="#servicios" class="cta-button">
-                <i class="fas fa-heartbeat"></i> Descubre tu Transformación
-            </a>
-        </div>
+    <!-- Hero Section: Main visual and Call to Action -->
+    <section class="hero">
+        <h2>¡Despierta la Luminosidad Oculta de tu Piel!</h2>
+        <p>En Angeline Estética Integral, no solo tratamos tu piel, ¡revelamos tu confianza! Transforma tu imagen con nuestros innovadores tratamientos personalizados.</p>
+        <a href="#servicios" class="cta-button">
+            <i class="fas fa-heartbeat"></i> Descubre tu Transformación
+        </a>
     </section>
 
-    <!-- Services Section -->
+    <!-- Services Section: Detailed list of treatments -->
     <section id="servicios" class="services">
-        <h3>Nuestros Tratamientos Premium</h3>
+        <h3>Nuestros Tratamientos Que Cambian Vidas</h3>
         <div class="service-grid">
+            <!-- Service Card: Limpieza Facial Profunda -->
             <div class="service-card">
-                <div class="service-img">Limpieza Facial</div>
-                <div class="service-content">
+                <img src="limpieza_profunda.jpg" alt="Imagen de Limpieza Facial Profunda">
+                <div class="service-card-info">
                     <h4>Limpieza Facial Profunda</h4>
-                    <p>Elimina impurezas, reduce puntos negros y espinillas, promoviendo una renovación celular espectacular para una piel radiante.</p>
+                    <p>¡Piel radiante al instante! Elimina impurezas, reduce puntos negros y espinillas, promoviendo una renovación celular espectacular.</p>
+                    <a href="https://wa.me/15619011837" class="cta-button cta-small" target="_blank">
+                        <i class="fab fa-whatsapp"></i> ¡Reserva Ahora!
+                    </a>
                 </div>
             </div>
-            
+
+            <!-- Service Card: Tratamientos para Acné -->
             <div class="service-card">
-                <div class="service-img-container">
-                    <img src="limpieza_profunda.jpg" alt="Descripción del tratamiento" class="service-img">    
-                    <div class="service-content">
-                        <h4>Control de Acné Avanzado</h4>
-                        <p>Control de grasa, reducción de inflamación y enrojecimiento. Previene cicatrices y manchas para siempre.</p>
-                    </div>
+                <img src="anti_acne.jpeg" alt="Imagen de Tratamientos para Acné">
+                <div class="service-card-info">
+                    <h4>Control de Acné Avanzado</h4>
+                    <p>¡Libérate de los brotes! Control de grasa, reducción de inflamación y enrojecimiento. Previene cicatrices y manchas para siempre.</p>
+                    <a href="https://wa.me/15619011837" class="cta-button cta-small" target="_blank">
+                        <i class="fab fa-whatsapp"></i> ¡Agenda tu Solución!
+                    </a>
+                </div>
             </div>
-            
+
+            <!-- Service Card: Tratamientos Antiage -->
             <div class="service-card">
-                <div class="service-img">Rejuvenecimiento</div>
-                <div class="service-content">
+                <img src="anti_age.jpeg" alt="Imagen de Tratamientos Antiage">
+                <div class="service-card-info">
                     <h4>Rejuvenecimiento Anti-Edad</h4>
-                    <p>Reduce líneas de expresión, aumenta la elasticidad, y potencia tu luminosidad con un colágeno imparable.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- AI Assistant Section -->
-    <section class="services">
-        <h3>Asesoría Inteligente</h3>
-        <div class="service-grid">
-            <div class="service-card">
-                <div class="service-img" style="background:linear-gradient(45deg, #6a89cc, #4a69bd);">Asesor IA</div>
-                <div class="service-content">
-                    <h4>Asesor de Piel Personalizado</h4>
-                    <p>¿No sabes qué tratamiento es el ideal para ti? ¡Pregúntale a nuestra inteligencia artificial y recibe una recomendación experta!</p>
-                    <a href="#asesor-ia" class="cta-button" style="padding: 0.8rem 1.5rem; font-size: 1rem; margin-top: 1rem;">
-                        <i class="fas fa-robot"></i> Consultar Ahora
+                    <p>¡Desafía el tiempo! Reduce líneas de expresión, aumenta la elasticidad, y potencia tu luminosidad con un colágeno imparable.</p>
+                    <a href="https://wa.me/15619011837" class="cta-button cta-small" target="_blank">
+                        <i class="fab fa-whatsapp"></i> ¡Empieza a Brillar!
                     </a>
                 </div>
             </div>
-            
+
+            <!-- Service Card: Plasma Rico en Plaquetas -->
             <div class="service-card">
-                <div class="service-img" style="background:linear-gradient(45deg, #f78fb3, #f8a5c2);">Preguntas IA</div>
-                <div class="service-content">
-                    <h4>Preguntas Frecuentes Inteligentes</h4>
-                    <p>¿Tienes dudas sobre nuestros tratamientos o el cuidado de la piel? ¡Nuestro asistente de IA está listo para responder!</p>
-                    <a href="#faq-ia" class="cta-button" style="padding: 0.8rem 1.5rem; font-size: 1rem; margin-top: 1rem;">
-                        <i class="fas fa-question-circle"></i> Hacer Pregunta
+                <img src="https://placehold.co/300x220/d19794/ffffff?text=Plasma+PRP" alt="Imagen de Plasma Rico en Plaquetas">
+                <div class="service-card-info">
+                    <h4>Plasma Rico en Plaquetas</h4>
+                    <p>¡Activa tu propia regeneración! Un procedimiento innovador para revitalizar tu piel desde adentro hacia afuera.</p>
+                    <a href="https://wa.me/15619011837" class="cta-button cta-small" target="_blank">
+                        <i class="fab fa-whatsapp"></i> ¡Quiero Saber Más!
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service Card: Hilos Tensores -->
+            <div class="service-card">
+                <img src="https://placehold.co/300x220/a67c7a/ffffff?text=Hilos+Tensores" alt="Imagen de Hilos Tensores">
+                <div class="service-card-info">
+                    <h4>Hilos Tensores: Lifting Instantáneo</h4>
+                    <p>¡Resultados espectaculares! Un efecto lifting inmediato para piel flácida, con una apariencia completamente natural y duradera.</p>
+                    <a href="https://wa.me/15619011837" class="cta-button cta-small" target="_blank">
+                        <i class="fab fa-whatsapp"></i> ¡Consigue el Tuyo!
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service Card: Botox -->
+            <div class="service-card">
+                <img src="https://placehold.co/300x220/7b4a42/ffffff?text=Botox" alt="Imagen de Botox">
+                <div class="service-card-info">
+                    <h4>Botox: Adiós Arrugas Dinámicas</h4>
+                    <p>¡Suaviza tus expresiones! Reduce arrugas (patas de gallo, frente, entrecejo) y previene nuevas con este procedimiento mínimamente invasivo.</p>
+                    <a href="https://wa.me/15619011837" class="cta-button cta-small" target="_blank">
+                        <i class="fab fa-whatsapp"></i> ¡Relaja tu Belleza!
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service Card: Relleno Ácido Hialurónico -->
+            <div class="service-card">
+                <img src="https://placehold.co/300x220/d19794/ffffff?text=Relleno+Hialurónico" alt="Imagen de Relleno Ácido Hialurónico">
+                <div class="service-card-info">
+                    <h4>Relleno con Ácido Hialurónico</h4>
+                    <p>¡Volumen y juventud instantáneos! Rellena surcos nasogenianos, hidrata profundamente y estimula tu propio colágeno.</p>
+                    <a href="https://wa.me/15619011837" class="cta-button cta-small" target="_blank">
+                        <i class="fab fa-whatsapp"></i> ¡Define tu Rostro!
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service Card: Sculptra -->
+            <div class="service-card">
+                <img src="https://placehold.co/300x220/a67c7a/ffffff?text=Sculptra" alt="Imagen de Sculptra">
+                <div class="service-card-info">
+                    <h4>Sculptra: Colágeno Renovado</h4>
+                    <p>¡Regenera tu piel desde adentro! Un bioestimulador que restaura la firmeza y juventud de forma progresiva y natural.</p>
+                    <a href="https://wa.me/15619011837" class="cta-button cta-small" target="_blank">
+                        <i class="fab fa-whatsapp"></i> ¡Rejuvenece Naturalmente!
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service Card: Bioestimuladores -->
+            <div class="service-card">
+                <img src="https://placehold.co/300x220/7b4a42/ffffff?text=Bioestimuladores" alt="Imagen de Bioestimuladores">
+                <div class="service-card-info">
+                    <h4>Bioestimuladores: Impulsa tu Belleza</h4>
+                    <p>¡El secreto de una piel impecable! Mejora la calidad y estructura de tu piel estimulando tu producción natural de colágeno.</p>
+                    <a href="https://wa.me/15619011837" class="cta-button cta-small" target="_blank">
+                        <i class="fab fa-whatsapp"></i> ¡Descubre el Potencial!
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service Card: Radiance -->
+            <div class="service-card">
+                <img src="https://placehold.co/300x220/d19794/ffffff?text=Radiance" alt="Imagen de Radiance">
+                <div class="service-card-info">
+                    <h4>Radiance: Piel Uniforme y Luminosa</h4>
+                    <p>¡Consigue ese brillo envidiable! Tratamiento especializado para una piel visiblemente más luminosa, uniforme y con un aspecto saludable.</p>
+                    <a href="https://wa.me/15619011837" class="cta-button cta-small" target="_blank">
+                        <i class="fab fa-whatsapp"></i> ¡Ilumina tu Piel!
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service Card: Armonización Facial -->
+            <div class="service-card">
+                <img src="https://placehold.co/300x220/a67c7a/ffffff?text=Armonización+Facial" alt="Imagen de Armonización Facial">
+                <div class="service-card-info">
+                    <h4>Armonización Facial</h4>
+                    <p>¡Equilibrio perfecto! Simetría, reducción de arrugas, definición de contornos y una piel de calidad superior para resultados naturales.</p>
+                    <a href="https://wa.me/15619011837" class="cta-button cta-small" target="_blank">
+                        <i class="fab fa-whatsapp"></i> ¡Transforma tu Rostro!
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section class="services">
-        <h3>Resultados Transformadores</h3>
-        <div class="service-grid">
-            <div class="service-card">
-                <div class="service-img" style="background:linear-gradient(45deg, #e55039, #eb2f06);">Antes</div>
-                <div class="service-content">
-                    <h4>Transformación Completa</h4>
-                    <p>Cliente con problemas de acné severo logra una piel completamente renovada después de nuestro tratamiento integral.</p>
-                </div>
-            </div>
-            
-            <div class="service-card">
-                <div class="service-img" style="background:linear-gradient(45deg, #78e08f, #38ada9);">Después</div>
-                <div class="service-content">
-                    <h4>Piel Radiante</h4>
-                    <p>Resultados visibles después de solo 4 semanas con nuestro programa de rejuvenecimiento facial intensivo.</p>
-                </div>
+    <!-- New AI Assistant Section -->
+    <section id="asesor-ia" class="ai-assistant">
+        <h3>✨ Tu Asesor de Piel Personalizado ✨</h3>
+        <p>¿No sabes qué tratamiento es el ideal para ti? ¡Pregúntale a nuestra inteligencia artificial!</p>
+        <div class="ai-assistant-content">
+            <textarea id="skinConcernInput" placeholder="Ej: Tengo la piel seca y con algunas líneas de expresión, y busco un aspecto más joven."></textarea>
+            <button class="cta-button" id="getRecommendationButton">
+                <i class="fas fa-magic"></i> Obtén tu Recomendación
+            </button>
+            <div id="aiResponse" class="ai-response">
+                ¡Describe tus preocupaciones de piel y recibe una recomendación experta de Angeline!
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- New AI FAQ Section -->
+    <section id="faq-ia" class="ai-assistant">
+        <h3>✨ Preguntas Frecuentes Inteligentes ✨</h3>
+        <p>¿Tienes dudas sobre nuestros tratamientos o el cuidado de la piel? ¡Nuestro asistente de IA está listo para responder!</p>
+        <div class="ai-assistant-content">
+            <textarea id="faqQuestionInput" placeholder="Ej: ¿Qué puedo hacer para reducir las manchas en mi piel?"></textarea>
+            <button class="cta-button" id="getFaqAnswerButton">
+                <i class="fas fa-question-circle"></i> Obtén tu Respuesta
+            </button>
+            <div id="faqResponse" class="ai-response">
+                ¡Escribe tu pregunta y recibe una respuesta instantánea!
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section (Prominent) -->
+    <section class="cta-strip" style="background-color: #7b4a42; color: white; text-align: center; padding: 4rem 2rem;">
+        <h3 style="font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 1.5rem; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">¡No Esperes Más para tu Transformación!</h3>
+        <p style="font-size: 1.4rem; margin-bottom: 2.5rem; max-width: 800px; margin: auto;">Tu camino hacia una piel radiante y una confianza renovada comienza aquí. ¡Agenda tu cita hoy mismo!</p>
+        <a href="https://wa.me/15619011837" class="cta-button" target="_blank" style="background-color: #d19794; box-shadow: 0 8px 20px rgba(0,0,0,0.4);">
+            <i class="fab fa-whatsapp"></i> ¡Agenda tu Cita Ahora!
+        </a>
+    </section>
+
+    <!-- Gallery Section: Before & After or inspirational images -->
+    <section id="galeria" class="gallery">
+        <h3>Historias de Éxito: Nuestros Resultados Hablan</h3>
+        <div class="gallery-images">
+            <!-- Example Before & After Images (placeholders) -->
+            <img src="BEFORE.png" alt="Imagen de Antes del Tratamiento">
+            <img src="https://placehold.co/380x280/d19794/7b4a42?text=Antes+y+Después+2" alt="Imagen de Después del Tratamiento">
+            <img src="https://placehold.co/380x280/a67c7a/7b4a42?text=Antes+y+Después+3" alt="Más resultados de Angeline">
+            <!-- More images can be added here if available -->
+        </div>
+        <p>"¡Increíble! Mi piel nunca se había sentido tan bien. Angeline transformó completamente mi rostro y mi confianza." - Cliente Satisfecha</p>
+    </section>
+
+    <!-- Contact Section: Location and Contact Information -->
+    <section id="contacto">
+        <h3>Tu Viaje Hacia la Belleza Empieza Aquí</h3>
+        <p>Visítanos en: North Fort Myers</p>
+        <p>¿Preguntas? ¡Estamos aquí para ayudarte! Contáctanos para una consulta personalizada.</p>
+        <a href="https://wa.me/15619011837" class="cta-button" target="_blank">
+            <i class="fab fa-whatsapp"></i> ¡Habla con un Experto!
+        </a>
+        <!-- Google Maps Embed for location -->
+        <iframe src="https://www.google.com/maps?q=North+Fort+Myers&output=embed" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+
+    <!-- Sticky Floating WhatsApp Button -->
+    <a href="https://wa.me/15619011837" class="whatsapp-float" target="_blank" aria-label="Contacta por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer Section: Copyright and Social Media Links -->
     <footer>
-        <p>&copy; 2025 Angeline Estética Integral. Todos los derechos reservados.</p>
-        <p>
-            <a href="#servicios">Tratamientos</a> | 
-            <a href="#asesor-ia">Asesor IA</a> | 
-            <a href="https://instagram.com/angeline_medspa" target="_blank">Instagram</a> | 
-            <a href="#contacto">Contacto</a>
-        </p>
-        <p>Tu Belleza, Nuestra Pasión</p>
+        <p>&copy; 2025 Angeline Estética Integral. Todos los derechos reservados. | Tu Belleza, Nuestra Pasión.</p>
+        <p>Síguenos: <a href="https://instagram.com/angeline_medspa" target="_blank">Instagram</a></p>
     </footer>
 
     <script>
-        // Comportamiento del header que se oculta al desplazar
-        let lastScrollTop = 0;
-        const header = document.getElementById('main-header');
-        const nav = document.getElementById('main-nav');
-        const toggleButton = document.getElementById('menu-toggle');
-        
-        // Ocultar header al desplazar hacia abajo
-        window.addEventListener('scroll', function() {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            if (scrollTop > lastScrollTop && scrollTop > 100) {
-                // Scroll hacia abajo
-                header.style.transform = 'translateY(-100%)';
-            } else {
-                // Scroll hacia arriba
-                header.style.transform = 'translateY(0)';
+        // Define the list of Angeline Spa services
+        const angelineServices = [
+            "Limpieza Facial Profunda",
+            "Tratamientos para Acné",
+            "Tratamientos Antiage",
+            "Plasma Rico en Plaquetas",
+            "Hilos Tensores",
+            "Botox",
+            "Relleno Ácido Hialurónico",
+            "Sculptra",
+            "Bioestimuladores",
+            "Radiance",
+            "Armonización Facial"
+        ];
+
+        // --- Personalized Skin Advisor (existing feature) ---
+        document.getElementById('getRecommendationButton').addEventListener('click', async () => {
+            const skinConcernInput = document.getElementById('skinConcernInput').value;
+            const aiResponseDiv = document.getElementById('aiResponse');
+
+            if (!skinConcernInput.trim()) {
+                aiResponseDiv.innerHTML = "Por favor, describe tus preocupaciones de piel para recibir una recomendación.";
+                return;
             }
-            
-            lastScrollTop = scrollTop;
-        });
-        
-        // Toggle menu en móviles
-        toggleButton.addEventListener('click', function() {
-            nav.classList.toggle('active');
-            toggleButton.innerHTML = nav.classList.contains('active') ? 
-                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-        });
-        
-        // Cerrar menú al hacer clic en un enlace (solo móviles)
-        const navLinks = document.querySelectorAll('.nav-links-group a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                if (window.innerWidth <= 768) {
-                    nav.classList.remove('active');
-                    toggleButton.innerHTML = '<i class="fas fa-bars"></i>';
+
+            aiResponseDiv.innerHTML = '<div class="ai-response loading">Cargando tu recomendación... <i class="fas fa-spinner fa-spin"></i></div>'; // Loading indicator
+
+            const prompt = `Eres un experto en estética y cuidado de la piel de Angeline Estética Integral. Un cliente te ha descrito sus preocupaciones de piel. Basado en la siguiente descripción de sus inquietudes: '${skinConcernInput}', y considerando nuestros servicios (${angelineServices.join(', ')}), por favor, haz una recomendación personalizada de qué tratamientos de Angeline podrían beneficiarlo. Incluye también un breve consejo general de cuidado y anímale a agendar una consulta gratuita con nosotros para un diagnóstico preciso. Tu respuesta debe ser acogedora, profesional y enfocada en soluciones.`;
+
+            let chatHistory = [];
+            chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+            const payload = { contents: chatHistory };
+            const apiKey = "";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    const text = result.candidates[0].content.parts[0].text;
+                    aiResponseDiv.innerHTML = text; // Display the response
+                } else {
+                    aiResponseDiv.innerHTML = "Lo sentimos, no pudimos generar una recomendación en este momento. Por favor, inténtalo de nuevo más tarde.";
                 }
-            });
-        });
-        
-        // Cerrar menú al hacer scroll en móviles
-        window.addEventListener('scroll', function() {
-            if (window.innerWidth <= 768 && nav.classList.contains('active')) {
-                nav.classList.remove('active');
-                toggleButton.innerHTML = '<i class="fas fa-bars"></i>';
+            } catch (error) {
+                console.error('Error calling Gemini API for skin advisor:', error);
+                aiResponseDiv.innerHTML = "Hubo un error al conectar con el asistente de IA. Por favor, verifica tu conexión a internet e inténtalo de nuevo.";
             }
         });
-        
-        // Animación de elementos al hacer scroll
-        const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.service-card, .services h3');
-            
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
-                
-                if (elementPosition < screenPosition) {
-                    element.style.opacity = "1";
-                    element.style.transform = "translateY(0)";
+
+        // --- Intelligent FAQ Assistant (new feature) ---
+        document.getElementById('getFaqAnswerButton').addEventListener('click', async () => {
+            const faqQuestionInput = document.getElementById('faqQuestionInput').value;
+            const faqResponseDiv = document.getElementById('faqResponse');
+
+            if (!faqQuestionInput.trim()) {
+                faqResponseDiv.innerHTML = "Por favor, escribe tu pregunta para recibir una respuesta.";
+                return;
+            }
+
+            faqResponseDiv.innerHTML = '<div class="ai-response loading">Buscando la respuesta... <i class="fas fa-spinner fa-spin"></i></div>'; // Loading indicator
+
+            // Define Angeline's services and their key benefits/details for context
+            const angelineServiceDetails = {
+                "Limpieza Facial Profunda": "Piel limpia y libre de impurezas, reducción de puntos negros y espinillas, promueve la renovación celular, previene el envejecimiento prematuro.",
+                "Tratamientos para Acné": "Reducción de brotes, control de grasa, disminución de inflamación y enrojecimiento, prevención y reducción de cicatrices y manchas.",
+                "Tratamientos Antiage": "Reducción de líneas de expresión, aumento de elasticidad, mayor luminosidad, reducción de poros, estimulación de colágeno.",
+                "Plasma Rico en Plaquetas": "Procedimiento innovador para la regeneración celular y revitalización de la piel.",
+                "Hilos Tensores": "Efecto lifting de la piel flácida, resultados visibles rápidamente, apariencia natural.",
+                "Botox": "Reducción de arrugas dinámicas (patas de gallo, líneas de la frente, entrecejo), prevención de nuevas arrugas, procedimiento mínimamente invasivo.",
+                "Relleno Ácido Hialurónico": "Reducción de líneas estáticas (surcos nasogenianos), voluminización, hidratación profunda, estimulación de colágeno.",
+                "Sculptra": "Bioestimulador de colágeno para restaurar la juventud y firmeza de la piel de forma gradual.",
+                "Bioestimuladores": "Estimula la producción natural de colágeno para mejorar la calidad y estructura de la piel.",
+                "Radiance": "Tratamiento para una piel luminosa, uniforme y con aspecto saludable.",
+                "Armonización Facial": "Simetría facial, reducción de arrugas y líneas de expresión, mejor calidad de la piel, definición de contornos, resultados naturales."
+            };
+
+            const servicesContext = Object.entries(angelineServiceDetails)
+                .map(([name, desc]) => `${name}: ${desc}`)
+                .join('\n');
+
+            const faqPrompt = `Eres un asistente experto de Angeline Estética Integral. Un usuario tiene una pregunta sobre estética facial o tratamientos. Responde a la pregunta del usuario de manera concisa, profesional y útil, utilizando la información de nuestros servicios si es relevante. Nuestros servicios son:\n${servicesContext}\n\nSi la pregunta puede ser respondida o complementada con la recomendación de uno de nuestros tratamientos, menciónalo sutilmente. Anima al usuario a agendar una consulta gratuita para un diagnóstico personalizado y elijas el tratamiento ideal. Pregunta del usuario: '${faqQuestionInput}'`;
+
+            let chatHistoryFaq = [];
+            chatHistoryFaq.push({ role: "user", parts: [{ text: faqPrompt }] });
+            const payloadFaq = { contents: chatHistoryFaq };
+            const apiUrlFaq = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`; // Reusing apiKey from above
+
+            try {
+                const responseFaq = await fetch(apiUrlFaq, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payloadFaq)
+                });
+
+                const resultFaq = await responseFaq.json();
+
+                if (resultFaq.candidates && resultFaq.candidates.length > 0 &&
+                    resultFaq.candidates[0].content && resultFaq.candidates[0].content.parts &&
+                    resultFaq.candidates[0].content.parts.length > 0) {
+                    const textFaq = resultFaq.candidates[0].content.parts[0].text;
+                    faqResponseDiv.innerHTML = textFaq; // Display the response
+                } else {
+                    faqResponseDiv.innerHTML = "Lo sentimos, no pudimos encontrar una respuesta en este momento. Por favor, inténtalo de nuevo más tarde.";
                 }
-            });
-        };
-        
-        // Inicializar animaciones
-        window.addEventListener('load', () => {
-            document.querySelectorAll('.service-card, .services h3').forEach(el => {
-                el.style.opacity = "0";
-                el.style.transform = "translateY(30px)";
-                el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
-            });
-            
-            window.addEventListener('scroll', animateOnScroll);
-            animateOnScroll();
+            } catch (error) {
+                console.error('Error calling Gemini API for FAQ assistant:', error);
+                faqResponseDiv.innerHTML = "Hubo un error al conectar con el asistente de IA. Por favor, verifica tu conexión a internet e inténtalo de nuevo.";
+            }
         });
     </script>
-    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
-<a href="https://wa.me/15619011837" class="whatsapp-float" target="_blank" aria-label="Contacta por WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-</a>
 </body>
 </html>
