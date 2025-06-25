@@ -596,6 +596,70 @@
                 width: calc(100% - 20px);
             }
         }
+        /* Agrega esto en tu sección de estilos */
+    /* Hamburguesa Menu */
+    .hamburger {
+        display: none;
+        cursor: pointer;
+        padding: 10px;
+        z-index: 1001;
+    }
+    
+    .hamburger div {
+        width: 25px;
+        height: 3px;
+        background-color: #7b4a42;
+        margin: 5px 0;
+        transition: all 0.3s ease;
+    }
+    
+    /* Header Scroll Effect */
+    header {
+        transition: transform 0.3s ease-out;
+    }
+    
+    header.hide {
+        transform: translateY(-100%);
+    }
+    
+    /* Mobile Menu */
+    @media (max-width: 768px) {
+        .hamburger {
+            display: block;
+        }
+        
+        .nav-links-group {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 70%;
+            height: 100vh;
+            background-color: rgba(232, 215, 212, 0.98);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            transition: right 0.5s ease;
+            z-index: 1000;
+        }
+        
+        .nav-links-group.active {
+            right: 0;
+        }
+        
+        /* Hamburger Animation */
+        .hamburger.active div:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        
+        .hamburger.active div:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active div:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+    }
     </style>
 </head>
 <body>
@@ -608,6 +672,12 @@
             -->
             <img src="LOGO_ESTETICA_ANGELINE-removebg-preview.png" alt="Angeline Estética Integral Logo" class="logo">
             <h1>Angeline Estética Integral</h1>
+        </div>
+        <!-- Agrega el botón hamburguesa -->
+        <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
         <nav>
             <div class="nav-links-group">
@@ -968,6 +1038,48 @@
                 faqResponseDiv.innerHTML = "Hubo un error al conectar con el asistente de IA. Por favor, verifica tu conexión a internet e inténtalo de nuevo.";
             }
         });
+        // Agrega esto al final de tu script existente
+    // Header Scroll Effect
+    let lastScroll = 0;
+    const header = document.querySelector('header');
+    
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll <= 0) {
+            header.classList.remove('hide');
+            return;
+        }
+        
+        if (currentScroll > lastScroll && !header.classList.contains('hide')) {
+            // Scroll down
+            header.classList.add('hide');
+        } else if (currentScroll < lastScroll && header.classList.contains('hide')) {
+            // Scroll up
+            header.classList.remove('hide');
+        }
+        
+        lastScroll = currentScroll;
+    });
+    
+    // Hamburger Menu Toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links-group');
+    
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+    
+    // Close menu when clicking a link
+    document.querySelectorAll('.nav-links-group a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+    });
     </script>
 </body>
 </html>
