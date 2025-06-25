@@ -606,9 +606,9 @@
     .hamburger {
         display: none;
         cursor: pointer;
-        padding: 5px;
+        padding: 8px;
         z-index: 1001;
-        right: 20px;
+        margin-left: auto;
     }
     
     .hamburger div {
@@ -631,7 +631,9 @@
     /* Mobile Menu */
     @media (max-width: 768px) {
         .hamburger {
-            display: block;
+            margin: 0;
+            padding: 8px;
+        order: 1; /* Lo posiciona al final */
         }
         
         .nav-links-group {
