@@ -28,7 +28,7 @@
         /* Header Styling */
         header {
             background-color: rgba(232, 215, 212, 0.95); /* Muted rose background with transparency */
-            padding: 1.2rem 2rem;
+            padding: 0.8rem 1.5rem;
             display: flex;
             align-items: center;
             /* Controla la distancia entre el logo-container y el nav */
@@ -43,22 +43,23 @@
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 20px; /* Espacio entre el logo y el título "Angeline Estética Integral" */
+            gap: 10px; /* Espacio entre el logo y el título "Angeline Estética Integral" */
         }
 
         .logo {
-            max-height: 160px; /* Increased logo size as requested */
-            margin-right: 50px; /* Increased space for the logo as requested */
+            max-height: 100px; /* Increased logo size as requested */
+            margin-right: 20px; /* Increased space for the logo as requested */
             border-radius: 50%; /* Make it round if square */
             box-shadow: 0 0 10px rgba(0,0,0,0.15);
         }
 
         header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.2rem; /* Retained for visual hierarchy */
+            font-size: 1.8rem; /* Retained for visual hierarchy */
             color: #7b4a42; /* Deep rose color */
             margin: 0; /* Asegura que no haya márgenes por defecto */
             letter-spacing: 0.05em;
+            line-height: 1.2; /* Ajustar interlineado */
         }
 
         /* Navigation Styling */
@@ -74,16 +75,17 @@
             display: flex;
             align-items: center;
             /* Controla el espacio entre los enlaces individuales (Tratamientos, Asesor IA, etc.) */
-            gap: 1.5rem; /* VALOR A MODIFICAR para el espacio entre los enlaces individuales */
+            gap: 1rem; /* VALOR A MODIFICAR para el espacio entre los enlaces individuales */
         }
 
         nav a {
             text-decoration: none;
             color: #7b4a42;
             font-weight: 700; /* Bolder navigation links */
-            font-size: 1.1rem;
+            font-size: 0.85rem;
             /* Eliminado margin-left: el 'gap' del padre .nav-links-group lo controla ahora. */
             transition: color 0.3s ease, transform 0.2s ease;
+            padding: 0.3rem 0; /* Añadir pequeño padding vertical */
         }
 
         nav a:hover {
@@ -513,10 +515,10 @@
                 margin-bottom: 1rem;
             }
             header h1 {
-                font-size: 1.8rem; /* Adjusted for smaller screens */
+                font-size: 1.5rem; /* Adjusted for smaller screens */
             }
             .logo {
-                max-height: 100px; /* Adjusted for smaller screens */
+                max-height: 80px; /* Adjusted for smaller screens */
                 margin-right: 25px; /* Adjusted for smaller screens */
             }
             nav {
@@ -724,7 +726,7 @@
 
             <!-- Service Card: Tratamientos para Acné -->
             <div class="service-card">
-                <img src="anti_acne.jpeg" alt="Imagen de Tratamientos para Acné">
+                <img src="limpieza_profunda.jpg" alt="Imagen de Tratamientos para Acné">
                 <div class="service-card-info">
                     <h4>Control de Acné Avanzado</h4>
                     <p>¡Libérate de los brotes! Control de grasa, reducción de inflamación y enrojecimiento. Previene cicatrices y manchas para siempre.</p>
